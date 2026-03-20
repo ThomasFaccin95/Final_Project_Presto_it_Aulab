@@ -18,12 +18,12 @@ class ArticleController extends Controller
 
     public function show(Article $article)
     {
-        //
+        return view('article.show', compact('article'));
     }
 
     public function create()
     {
-        return view('articles.create');
+        return view('article.create');
     }
 
     public function store(Request $request)
