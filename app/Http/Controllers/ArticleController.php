@@ -38,6 +38,25 @@ class ArticleController extends Controller
         return view('article.index', compact('articles', 'category'));
     }
 
+    // Pagina risultati ricerca full-text
+    public function search(Request $request)
+    {
+        $query = $request->input('query', '');
+
+        $articles = Article::with(['category', 'user'])
+            ->where(function ($q) use ($query) {
+                $q->where('title', 'like', '%' . $query . '%')
+                    ->orWhere('description', 'like', '%' . $query . '%')
+                    ->orWhereHas('category', function ($q) use ($query) {
+                        $q->where('name', 'like', '%' . $query . '%');
+                    });
+            })
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view('article.search', compact('articles', 'query'));
+    }
+
     public function create()
     {
         return view('article.create');

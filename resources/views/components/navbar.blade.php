@@ -25,6 +25,10 @@
                     <a class="nav-link" href="{{ route('article.index') }}">Annunci</a>
                 </li>
             </ul>
+            {{-- Barra di ricerca --}}
+            <div class="mx-auto">
+                @livewire('search-bar')
+            </div>
 
             {{-- Destra: @guest / @auth --}}
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center gap-2">
