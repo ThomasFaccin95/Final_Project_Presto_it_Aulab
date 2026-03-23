@@ -42,7 +42,8 @@
 
                 @auth
                     <li class="nav-item">
-                        <a class="btn-presto btn-sm" href="{{ route('article.create') }}">+ Inserisci annuncio</a>
+                        <a class="btn-presto btn-sm btn-navbar-create" href="{{ route('article.create') }}">Inserisci
+                            annuncio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">I miei annunci</a>
