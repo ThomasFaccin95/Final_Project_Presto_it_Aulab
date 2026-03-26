@@ -83,4 +83,19 @@ return [
     'motivation_placeholder' => 'Raccontaci la tua motivazione...',
     'send_application'      => 'Invia candidatura',
     'login_required'        => 'Devi essere registrato per candidarti come revisore.',
+
+    // Uploads
+    'title'                 => 'Titolo',
+    'title_placeholder'     => 'Es. iPhone 13 — ottimo stato',
+    'category'              => 'Categoria',
+    'select_category'       => 'Seleziona una categoria',
+    'price'                 => 'Prezzo (€)',
+    'description'           => 'Descrizione',
+    'description_placeholder' => 'Descrivi il tuo articolo...',
+    'images'                => 'Immagini',
+
+    // Search
+    'search_results_title'  => 'Risultati per ":query"',
+    'search_results_count'  => ':count annunci trovati',
+    'no_search_results'     => 'Nessun annuncio trovato per ":query".',
 ];

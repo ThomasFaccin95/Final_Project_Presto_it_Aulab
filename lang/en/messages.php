@@ -83,4 +83,19 @@ return [
     'motivation_placeholder' => 'Tell us your motivation...',
     'send_application'      => 'Send application',
     'login_required'        => 'You must be registered to apply as a revisor.',
+
+    // Uploads
+    'title'                 => 'Title',
+    'title_placeholder'     => 'E.g. iPhone 13 — great condition',
+    'category'              => 'Category',
+    'select_category'       => 'Select a category',
+    'price'                 => 'Price (€)',
+    'description'           => 'Description',
+    'description_placeholder' => 'Describe your item...',
+    'images'                => 'Images',
+
+    // search
+    'search_results_title'  => 'Results for ":query"',
+    'search_results_count'  => ':count listings found',
+    'no_search_results'     => 'No listings found for ":query".',
 ];

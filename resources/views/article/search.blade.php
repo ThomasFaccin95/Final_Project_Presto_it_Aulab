@@ -1,10 +1,11 @@
 <x-layout>
-    <x-slot:title>Risultati per "{{ $query }}" — Presto</x-slot:title>
+    <x-slot:title>{{ __('messages.search_results_title', ['query' => $query]) }} — Presto</x-slot:title>
 
     <div class="row mb-4 mt-3">
         <div class="col">
-            <h1 class="welcome-title display-5">Risultati per "{{ $query }}"</h1>
-            <p class="welcome-subtitle">{{ $articles->total() }} annunci trovati</p>
+            {{-- Titolo con query di ricerca --}}
+            <h1 class="welcome-title display-5">{{ __('messages.search_results_title', ['query' => $query]) }}</h1>
+            <p class="welcome-subtitle">{{ __('messages.search_results_count', ['count' => $articles->total()]) }}</p>
         </div>
     </div>
 
@@ -15,16 +16,16 @@
 
         {{-- Griglia risultati --}}
         <div class="col">
-            <div class="row gy-4">
+            <div class="row gy-4 align-items-stretch">
                 @forelse ($articles as $article)
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
                         <x-card :article="$article" />
                     </div>
                 @empty
                     <div class="col-12 text-center">
-                        <p class="welcome-subtitle">Nessun annuncio trovato per "{{ $query }}".</p>
+                        <p class="welcome-subtitle">{{ __('messages.no_search_results', ['query' => $query]) }}</p>
                         <a href="{{ route('article.index') }}" class="btn-presto mt-3">
-                            Vedi tutti gli annunci
+                            {{ __('messages.view_articles') }}
                         </a>
                     </div>
                 @endforelse

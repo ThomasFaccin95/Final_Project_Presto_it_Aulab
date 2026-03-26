@@ -83,4 +83,19 @@ return [
     'motivation_placeholder' => 'Cuentanos tu motivacion...',
     'send_application'      => 'Enviar solicitud',
     'login_required'        => 'Debes estar registrado para solicitar ser revisor.',
+
+    // Uploads
+    'title'                 => 'Título',
+    'title_placeholder'     => 'Ej. iPhone 13 — buen estado',
+    'category'              => 'Categoría',
+    'select_category'       => 'Selecciona una categoría',
+    'price'                 => 'Precio (€)',
+    'description'           => 'Descripción',
+    'description_placeholder' => 'Describe tu artículo...',
+    'images'                => 'Imágenes',
+
+    // Search
+    'search_results_title'  => 'Resultados para ":query"',
+    'search_results_count'  => ':count anuncios encontrados',
+    'no_search_results'     => 'No se encontraron anuncios para ":query".',
 ];

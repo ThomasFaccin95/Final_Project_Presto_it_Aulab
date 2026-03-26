@@ -24,4 +24,10 @@ class Article extends Model
     {
         return $query->where('status', 'pending');
     }
+
+    // Un articolo ha molte immagini
+    public function images()
+    {
+        return $this->hasMany(Image::class);
+    }
 }
