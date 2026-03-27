@@ -24,9 +24,16 @@ class CategoriesSeeder extends Seeder
      * Run the database seeds.
      */
     public function run(): void
-    {
-        foreach ($this->categories as $category) {
-            Category::create($category);
-        }
+{
+    foreach ($this->categories as $category) {
+        // Aggiorna se esiste già, crea se non esiste
+        Category::updateOrCreate(
+            ['name' => $category['name']],        // cerca per nome italiano
+            [
+                'name_en' => $category['name_en'],
+                'name_es' => $category['name_es'],
+            ]
+        );
     }
+}
 }
