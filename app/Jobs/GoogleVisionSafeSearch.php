@@ -4,16 +4,12 @@ namespace App\Jobs;
 
 use App\Models\Image;
 use Google\Cloud\Vision\V1\Client\ImageAnnotatorClient;
-use Google\Cloud\Vision\V1\AnnotateImageRequest;
-use Google\Cloud\Vision\V1\BatchAnnotateImagesRequest;
-use Google\Cloud\Vision\V1\Feature;
-use Google\Cloud\Vision\V1\Feature\Type;
-use Google\Cloud\Vision\V1\Image as GImage;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class GoogleVisionSafeSearch implements ShouldQueue
 {
@@ -25,39 +21,39 @@ class GoogleVisionSafeSearch implements ShouldQueue
 
     public function handle(): void
     {
+        // Costruiamo il percorso completo dell'immagine
         $path = storage_path('app/public/' . $this->image->path);
 
-        // Inizializza il client con le credenziali
-        $client = new ImageAnnotatorClient([
+        // Inizializziamo il client
+        $imageAnnotator = new ImageAnnotatorClient([
             'credentials' => base_path('google_credential.json'),
         ]);
 
-        // Prepara l'immagine
-        $gImage = (new GImage())->setContent(file_get_contents($path));
+        try {
+            // Leggiamo il contenuto del file
+            $imageContent = file_get_contents($path);
 
-        // Prepara la feature safe search
-        $feature = (new Feature())->setType(Type::SAFE_SEARCH_DETECTION);
+            // Eseguiamo la scansione SafeSearch in modo diretto
+            $response = $imageAnnotator->safeSearchDetection($imageContent);
+            $annotation = $response->getSafeSearchAnnotation();
 
-        // Prepara la request
-        $request = (new AnnotateImageRequest())
-            ->setImage($gImage)
-            ->setFeatures([$feature]);
-
-        // Esegue la chiamata API
-        $batchRequest = (new BatchAnnotateImagesRequest())->setRequests([$request]);
-        $response = $client->batchAnnotateImages($batchRequest);
-        $annotation = $response->getResponses()[0]->getSafeSearchAnnotation();
-
-        if ($annotation) {
-            $this->image->update([
-                'safe_search' => [
-                    'adult'    => $annotation->getAdult(),
-                    'violence' => $annotation->getViolence(),
-                    'racy'     => $annotation->getRacy(),
-                ],
-            ]);
+            if ($annotation) {
+                // Likelihood ritorna degli interi (1-5), li mappiamo per comodità o li salviamo così
+                $this->image->update([
+                    'safe_search' => [
+                        'adult'    => $annotation->getAdult(),
+                        'medical'  => $annotation->getMedical(),
+                        'spoof'    => $annotation->getSpoof(),
+                        'violence' => $annotation->getViolence(),
+                        'racy'     => $annotation->getRacy(),
+                    ],
+                ]);
+            }
+        } catch (\Exception $e) {
+            // È buona norma loggare l'errore se qualcosa va storto nell'analisi
+            Log::error("Google Vision Error: " . $e->getMessage());
+        } finally {
+            $imageAnnotator->close();
         }
-
-        $client->close();
     }
 }
