@@ -84,7 +84,10 @@ return [
     'send_application'      => 'Send application',
     'login_required'        => 'You must be registered to apply as a revisor.',
 
+
     // Uploads
+    'insert_article_title'    => 'Post a listing',
+    'insert_article_subtitle' => 'Fill in the fields to publish your item',
     'title'                 => 'Title',
     'title_placeholder'     => 'E.g. iPhone 13 — great condition',
     'category'              => 'Category',

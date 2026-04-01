@@ -85,6 +85,8 @@ return [
     'login_required'        => 'Devi essere registrato per candidarti come revisore.',
 
     // Uploads
+    'insert_article_title'    => 'Inserisci annuncio',
+    'insert_article_subtitle' => 'Compila i campi per pubblicare il tuo articolo',
     'title'                 => 'Titolo',
     'title_placeholder'     => 'Es. iPhone 13 — ottimo stato',
     'category'              => 'Categoria',

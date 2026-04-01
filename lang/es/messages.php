@@ -85,6 +85,8 @@ return [
     'login_required'        => 'Debes estar registrado para solicitar ser revisor.',
 
     // Uploads
+    'insert_article_title'    => 'Insertar anuncio',
+    'insert_article_subtitle' => 'Rellena los campos para publicar tu artículo',
     'title'                 => 'Título',
     'title_placeholder'     => 'Ej. iPhone 13 — buen estado',
     'category'              => 'Categoría',
