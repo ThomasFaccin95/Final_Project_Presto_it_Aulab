@@ -96,6 +96,9 @@ return [
     'description'           => 'Description',
     'description_placeholder' => 'Describe your item...',
     'images'                => 'Images',
+    'choose_file'     => 'Choose file',
+    'no_file'         => 'No file selected',
+    'files_selected'  => 'file(s) selected',
 
     // search
     'search_results_title'  => 'Results for ":query"',

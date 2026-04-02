@@ -95,6 +95,10 @@ return [
     'description'           => 'Descripción',
     'description_placeholder' => 'Describe tu artículo...',
     'images'                => 'Imágenes',
+    'choose_file'     => 'Elegir archivo',
+    'no_file'         => 'Ningún archivo seleccionado',
+    'files_selected'  => 'archivo(s) seleccionado(s)',
+
 
     // Search
     'search_results_title'  => 'Resultados para ":query"',
