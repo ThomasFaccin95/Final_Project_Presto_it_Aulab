@@ -58,6 +58,19 @@ body {
     background-color: var(--color-sand-50);
     color: var(--color-terra-800);
 }
+.btn-presto-outline-img-upload {
+    background-color: transparent;
+    color: var(--color-terra-400);
+    border: 1.5px solid var(--color-terra-400);
+    border-radius: var(--radius-md);
+    padding: 10px 24px;
+    font-weight: 500;
+    transition: all .2s;
+}
+.btn-presto-outline-img-upload:hover {
+    background-color: var(--color-sand-50);
+    color: var(--color-terra-800);
+}
 
 /* FORM CONTROLS */
 

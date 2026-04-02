@@ -57,15 +57,34 @@
         <div class="mb-4">
             <label class="presto-label">{{ __('messages.images') }}</label>
 
-            {{-- Input file multiplo --}}
-            <input type="file" wire:model="images" class="presto-input @error('images.*') is-invalid @enderror"
-                multiple accept="image/*">
-            @error('images.*')
-                <div class="auth-error">{{ $message }}</div>
-            @enderror
+            {{-- Input file nascosto: notare l'aggiunta di onchange="aggiornaTestoFile(this)" --}}
+            <input type="file" id="images" wire:model="images" class="@error('images.*') is-invalid @enderror"
+                style="display:none" multiple accept="image/jpeg, image/png, image/jpg, image/webp"
+                onchange="aggiornaTestoFile(this)">
+
+            {{-- Bottone custom traducibile --}}
+            <div class="presto-input d-flex align-items-center gap-2"
+                onclick="document.getElementById('images').click()" style="cursor: pointer;">
+                <button type="button" class="btn-presto-outline-img-upload">{{ __('messages.choose_file') }}</button>
+
+                {{-- Il nostro testo dinamico --}}
+                <span id="file-label" class="text-muted small text-truncate" style="max-width: 250px;">
+                    @if ($images && count($images) === 1)
+                        {{-- Se c'è 1 immagine, prendi il nome originale del file --}}
+                        {{ $images[0]->getClientOriginalName() }}
+                    @elseif ($images && count($images) > 1)
+                        {{-- Se ci sono più immagini, scrivi il numero --}}
+                        {{ count($images) }} {{ __('messages.files_selected') }}
+                    @else
+                        {{-- Se non c'è nulla, testo di default --}}
+                        {{ __('messages.no_file') }}
+                    @endif
+                </span>
+            </div>
 
             {{-- Indicatore caricamento Livewire --}}
-            <div wire:loading wire:target="images" class="auth-error mt-2">
+            <div wire:loading wire:target="images" class="mt-2 text-primary small">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Caricamento immagini...
             </div>
 

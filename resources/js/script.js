@@ -18,7 +18,7 @@ window.changeSlide = function (direction) {
     images[currentIndex].classList.add('active');
 }
 
-// # Script per nascondere il messaggio dopo 5 secondi
+//  Script per nascondere il messaggio dopo 5 secondi
 
 document.addEventListener('DOMContentLoaded', () => {
     // Cerca l'elemento con ID 'flash-message'
@@ -37,61 +37,79 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// # SCRIPT JAVASCRIPT PER GESTIRE I CHECKBOX E IL TOTALE NEL CARRELLO 
+//  SCRIPT JAVASCRIPT PER GESTIRE I CHECKBOX E IL TOTALE NEL CARRELLO 
 
-// # 1. SELEZIONE DEGLI ELEMENTI HTML
+//  1. SELEZIONE DEGLI ELEMENTI HTML
 document.addEventListener('DOMContentLoaded', function () {
     const checkboxes = document.querySelectorAll('.item-checkbox');
     const totalDisplay = document.getElementById('cart-total');
     const checkoutBtn = document.getElementById('checkout-btn');
     const inputsContainer = document.getElementById('selected-items-inputs');
 
-    // # 2. FUNZIONE PRINCIPALE: Ricalcola il totale e prepara i dati
+    //  2. FUNZIONE PRINCIPALE: Ricalcola il totale e prepara i dati
     function updateTotal() {
         let total = 0;
         let selectedCount = 0;
         inputsContainer.innerHTML = '';
 
-        // # Cicla ogni singolo checkbox presente nella pagina
+        //  Cicla ogni singolo checkbox presente nella pagina
         checkboxes.forEach(checkbox => {
 
-            // # Se il checkbox attuale ha la spunta (è checked)...
+            //  Se il checkbox attuale ha la spunta (è checked)...
             if (checkbox.checked) {
 
-                // # A) CALCOLO PREZZO
-                // # Legge il prezzo e la quantità dagli attributi 'data-price' e 'data-quantity'
+                //  A) CALCOLO PREZZO
+                //  Legge il prezzo e la quantità dagli attributi 'data-price' e 'data-quantity'
                 const price = parseFloat(checkbox.dataset.price);
                 const quantity = parseInt(checkbox.dataset.quantity);
 
-                // # Somma al totale il costo (prezzo * quantità)
+                //  Somma al totale il costo (prezzo * quantità)
                 total += (price * quantity);
-                selectedCount++; // # Aumenta il contatore degli oggetti spuntati
+                selectedCount++; //  Aumenta il contatore degli oggetti spuntati
 
-                // # B) PREPARAZIONE DATI PER IL BACKEND
-                // # Crea un nuovo elemento HTML di tipo <input>
+                //  B) PREPARAZIONE DATI PER IL BACKEND
+                //  Crea un nuovo elemento HTML di tipo <input>
                 const input = document.createElement('input');
                 input.type = 'hidden';
                 input.name = 'selected_items[]';
                 input.value = checkbox.value;
 
-                // # Inserisce fisicamente questo nuovo input dentro il form
+                //  Inserisce fisicamente questo nuovo input dentro il form
                 inputsContainer.appendChild(input);
             }
         });
 
-        // # 3. AGGIORNAMENTO DELLA GRAFICA
-        // # Scrive il nuovo totale sostituendo il punto con la virgola per i decimali
+        //  3. AGGIORNAMENTO DELLA GRAFICA
+        //  Scrive il nuovo totale sostituendo il punto con la virgola per i decimali
         totalDisplay.textContent = '€' + total.toFixed(2).replace('.', ',');
 
-        // # Se selectedCount è uguale a 0, il bottone rimane disabilitato (true)
-        // # Se selectedCount è maggiore di 0, il bottone si abilita (false)
+        //  Se selectedCount è uguale a 0, il bottone rimane disabilitato (true)
+        //  Se selectedCount è maggiore di 0, il bottone si abilita (false)
         checkoutBtn.disabled = selectedCount === 0;
     }
 
-    // # 4. ATTIVAZIONE DELLA FUNZIONE
-    // # Aggiunge un "ascoltatore di eventi": ogni volta che lo stato di un checkbox cambia ('change'),
-    // # esegue automaticamente la funzione updateTotal() per ricalcolare tutto.
+    //  4. ATTIVAZIONE DELLA FUNZIONE
+    //  Aggiunge un "ascoltatore di eventi": ogni volta che lo stato di un checkbox cambia ('change'),
+    //  esegue automaticamente la funzione updateTotal() per ricalcolare tutto.
     checkboxes.forEach(checkbox => {
         checkbox.addEventListener('change', updateTotal);
     });
 });
+
+function aggiornaTestoFile(input) {
+    // Troviamo il nostro pezzetto di testo tramite il suo ID
+    const etichetta = document.getElementById('file-label');
+    // Contiamo quanti file ha scelto l'utente
+    const numeroFile = input.files.length;
+
+    if (numeroFile === 0) {
+        // Se non c'è nulla, rimettiamo il testo predefinito usando le traduzioni di Laravel
+        etichetta.textContent = "{{ __('messages.no_file') }}";
+    } else if (numeroFile === 1) {
+        // Se c'è solo 1 file, scriviamo il nome di quel file
+        etichetta.textContent = input.files[0].name;
+    } else {
+        // Se sono di più, scriviamo il numero + la scritta tradotta
+        etichetta.textContent = numeroFile + " {{ __('messages.files_selected') }}";
+    }
+}
