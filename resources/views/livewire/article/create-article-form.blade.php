@@ -58,7 +58,7 @@
             <label class="presto-label">{{ __('messages.images') }}</label>
 
             {{-- Input file nascosto: notare l'aggiunta di onchange="aggiornaTestoFile(this)" --}}
-            <input type="file" id="images" wire:model="images" class="@error('images.*') is-invalid @enderror"
+            <input type="file" id="images" wire:model="temporary_images" class="@error('temporary_images.*') is-invalid @enderror"
                 style="display:none" multiple accept="image/jpeg, image/png, image/jpg, image/webp"
                 onchange="aggiornaTestoFile(this)">
 
@@ -83,7 +83,7 @@
             </div>
 
             {{-- Indicatore caricamento Livewire --}}
-            <div wire:loading wire:target="images" class="mt-2 text-primary small">
+            <div wire:loading wire:target="temporary_images" class="mt-2 text-primary small">
                 <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 Caricamento immagini...
             </div>
