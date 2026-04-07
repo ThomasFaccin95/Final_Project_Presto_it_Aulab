@@ -55,6 +55,15 @@ return [
     'email_placeholder' => 'nome@esempio.it',
     'name_placeholder'  => 'Mario Rossi',
 
+    // Auth Error
+    'name_required'     => 'Il nome è obbligatorio.',
+    'name_max'          => 'Il nome non può superare i 255 caratteri.',
+    'email_required'    => 'L\'email è obbligatoria.',
+    'email_invalid'     => 'Inserisci un indirizzo email valido.',
+    'email_taken'       => 'Questa email è già registrata.',
+    'password_required' => 'La password è obbligatoria.',
+    'password_confirmed' => 'La password di conferma non corrisponde alla password.',
+
     // Hero
     'hero_subtitle'     => 'Il portale numero uno per vendere e comprare articoli di ogni tipo.',
     'view_articles'     => 'Vedi annunci',
@@ -98,6 +107,16 @@ return [
     'choose_file'     => 'Scegli file',
     'no_file'         => 'Nessun file selezionato',
     'files_selected'  => 'file selezionato/i',
+    'title_required'        => 'Il titolo è obbligatorio.',
+    'title_max'             => 'Il titolo non può superare 255 caratteri.',
+    'description_required'  => 'La descrizione è obbligatoria.',
+    'price_required_numeric'  => 'Il prezzo è obbligatorio e deve essere numerico.',
+    'price_numeric'         => 'Il prezzo deve essere un numero.',
+    'price_min'             => 'Il prezzo non può essere negativo.',
+    'category_id_required'  => 'Seleziona una categoria.',
+    'category_id_exists'    => 'La categoria selezionata non è valida.',
+    'images_*_image'        => 'Il file deve essere un\'immagine.',
+    'images_*_max'          => 'Ogni immagine non può superare 2MB.',
 
     // Search
     'search_results_title'  => 'Risultati per ":query"',

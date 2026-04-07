@@ -46,20 +46,20 @@ class CreateArticleForm extends Component
     protected function messages(): array
     {
         return [
-            'title.required'        => 'Il titolo è obbligatorio.',
-            'title.max'             => 'Il titolo non può superare 255 caratteri.',
-            'description.required'  => 'La descrizione è obbligatoria.',
-            'price.required'        => 'Il prezzo è obbligatorio.',
-            'price.numeric'         => 'Il prezzo deve essere un numero.',
-            'price.min'             => 'Il prezzo non può essere negativo.',
-            'category_id.required'  => 'Seleziona una categoria.',
-            'category_id.exists'    => 'La categoria selezionata non è valida.',
-            'images.*.image'        => 'Il file deve essere un\'immagine.',
-            'images.*.max'          => 'Ogni immagine non può superare 2MB.',
+            'title.required'        => __('messages.title_required'),
+            'title.max'             => __('messages.title_max'), // Usa la traduzione!
+            'description.required'  => __('messages.description_required'),
+            'price.required'        => __('messages.price_required_numeric'),
+            'price.numeric'         => __('messages.price_numeric'),
+            'price.min'             => __('messages.price_min'),
+            'category_id.required'  => __('messages.category_id_required'),
+            'category_id.exists'    => __('messages.category_id_exists'),
+            'images.*.image'        => __('messages.images_*_image'),
+            'images.*.max'          => __('messages.images_*_max'),
         ];
     }
 
-     // Questa funzione unisce le nuove foto a quelle vecchie
+    // Questa funzione unisce le nuove foto a quelle vecchie
     public function updatedTemporaryImages()
     {
         // Prima validiamo le nuove foto in entrata

@@ -55,6 +55,14 @@ return [
     'email_placeholder' => 'name@example.com',
     'name_placeholder'  => 'John Doe',
 
+    // Auth Error
+    'name_required'     => 'The name is required.',
+    'name_max'          => 'The name may not be greater than 255 characters.',
+    'email_required'    => 'The email is required.',
+    'email_invalid'     => 'Please enter a valid email address.',
+    'email_taken'       => 'This email is already taken.',
+    'password_required' => 'The password is required.',
+    'password_confirmed' => 'The confirmation password does not match the password.',
     // Hero
     'hero_subtitle'     => 'The number one portal to buy and sell items of all kinds.',
     'view_articles'     => 'Browse listings',
@@ -99,6 +107,17 @@ return [
     'choose_file'     => 'Choose file',
     'no_file'         => 'No file selected',
     'files_selected'  => 'file(s) selected',
+    'title_required'        => 'The title is required.',
+    'title_max'             => 'The title may not be greater than 255 characters.',
+    'description_required'  => 'The description is required.',
+    'price_required_numeric'        => 'The price is required and must be numeric.',
+    'price_numeric'         => 'The price must be a number.',
+    'price_min'             => 'The price cannot be negative.',
+    'category_id_required'  => 'Please select a category.',
+    'category_id_exists'    => 'The selected category is invalid.',
+    'images_*_image'        => 'The file must be an image.',
+    'images_*_max'          => 'Each image may not be greater than 2MB.',
+
 
     // search
     'search_results_title'  => 'Results for ":query"',

@@ -9,12 +9,6 @@
                 <h1 class="auth-title">{{ __('messages.welcome_back') }}</h1>
                 <p class="auth-subtitle">{{ __('messages.login_subtitle') }}</p>
 
-                {{-- Errore credenziali --}}
-                @if ($errors->any())
-                    <div class="alert alert-danger rounded-3 mb-4" role="alert">
-                        {{ $errors->first() }}
-                    </div>
-                @endif
 
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
@@ -24,16 +18,21 @@
                         <label for="email" class="presto-label">{{ __('messages.email') }}</label>
                         <input type="email" id="email" name="email"
                             class="presto-input @error('email') is-invalid @enderror" value="{{ old('email') }}"
-                            required autofocus autocomplete="email"
-                            placeholder="{{ __('messages.email_placeholder') }}">
+                             placeholder="{{ __('messages.email_placeholder') }}">
+                        @error('email')
+                            <div class="auth-error">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     {{-- Password --}}
                     <div class="mb-4">
                         <label for="password" class="presto-label">{{ __('messages.password') }}</label>
                         <input type="password" id="password" name="password"
-                            class="presto-input @error('password') is-invalid @enderror" required
-                            autocomplete="current-password" placeholder="••••••••">
+                            class="presto-input @error('password') is-invalid @enderror"
+                            placeholder="••••••••">
+                        @error('password')
+                            <div class="auth-error">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     {{-- Ricordami --}}

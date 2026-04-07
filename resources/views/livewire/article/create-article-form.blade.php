@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit="store">
+    <form wire:submit="store" novalidate>
 
         {{-- Titolo --}}
         <div class="mb-3">
@@ -33,7 +33,7 @@
             <div class="input-group">
 
                 <input type="number" id="price" wire:model="price"
-                    class="presto-input @error('price') is-invalid @enderror" placeholder="Es. 49.99" min="0"
+                    class="presto-input @error('price') is-invalid @enderror" placeholder="Es. 49.99"
                     step="0.01">
             </div>
             {{-- Nota esplicativa per evitare errori di formattazione --}}

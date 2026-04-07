@@ -17,7 +17,7 @@
                         <label for="name" class="presto-label">{{ __('messages.full_name') }}</label>
                         <input type="text" id="name" name="name"
                             class="presto-input @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                            required autofocus autocomplete="name" placeholder="{{ __('messages.name_placeholder') }}">
+                             placeholder="{{ __('messages.name_placeholder') }}"> 
                         @error('name')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
@@ -28,7 +28,7 @@
                         <label for="email" class="presto-label">{{ __('messages.email') }}</label>
                         <input type="email" id="email" name="email"
                             class="presto-input @error('email') is-invalid @enderror" value="{{ old('email') }}"
-                            required autocomplete="email" placeholder="{{ __('messages.email_placeholder') }}">
+                            placeholder="{{ __('messages.email_placeholder') }}">
                         @error('email')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
@@ -38,8 +38,7 @@
                     <div class="mb-3">
                         <label for="password" class="presto-label">{{ __('messages.password') }}</label>
                         <input type="password" id="password" name="password"
-                            class="presto-input @error('password') is-invalid @enderror" required
-                            autocomplete="new-password" placeholder="••••••••">
+                            class="presto-input @error('password') is-invalid @enderror" placeholder="••••••••">
                         @error('password')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
@@ -50,7 +49,11 @@
                         <label for="password_confirmation"
                             class="presto-label">{{ __('messages.confirm_password') }}</label>
                         <input type="password" id="password_confirmation" name="password_confirmation"
-                            class="presto-input" required autocomplete="new-password" placeholder="••••••••">
+                            class="presto-input @error('password') is-invalid @enderror" 
+                             placeholder="••••••••">
+                             @error('password_confirmation')
+                            <div class="auth-error">{{ $message }}</div>
+                        @enderror
                     </div>
 
                     <button type="submit" class="btn-presto w-100">{{ __('messages.create_account') }}</button>
