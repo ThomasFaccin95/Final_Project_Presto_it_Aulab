@@ -40,6 +40,11 @@ return [
     'apply'             => 'Candidati ora',
     'rights'            => '© :year Presto.it — Tutti i diritti riservati. Realizzato dal Team Presto.',
 
+    // Footer revisore
+    'revisor_area'      => 'Revisori',
+    'revisor_area_desc' => 'Accedi al pannello revisori e gestisci gli annunci in attesa di approvazione.',
+    'regulations'       => 'Regolamento',
+
     // Auth
     'welcome_back'      => 'Bentornato',
     'login_subtitle'    => 'Effettua il login',
@@ -142,6 +147,12 @@ return [
     'cart_cleared'          => 'Carrello svuotato.',
     'cart_error'            => 'Articolo non disponibile.',
     'cart_own_article'      => 'Non puoi aggiungere un tuo articolo al carrello.',
+
+    // My articles
+    'my_articles_desc' => 'Tutti gli annunci che hai pubblicato.',
+    'status_approved' => 'Approvato',
+    'status_rejected' => 'Rifiutato',
+    'status_pending'  => 'In attesa',
 
     // messages description
     'price_hint' => 'Usa il punto come separatore decimale. Es: 10.00 = dieci euro, 10000 = diecimila euro.',

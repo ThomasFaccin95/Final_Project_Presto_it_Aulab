@@ -3,22 +3,34 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
-use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class ArticleController extends Controller
 {
+    public function myArticles()
+    {
+        $articles = Article::with(['category', 'user'])
+            ->where('user_id', Auth::id())
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        return view('article.my-articles', compact('articles'));
+    }
     public function index()
     {
         // Lista tutti gli articoli paginati - Solo annunci approvati
         $articles = Article::with(['category', 'user'])
             ->where('status', 'approved')
+            ->when(auth()->check(), fn($q) => $q->where('user_id', '!=', Auth::id()))
             ->orderBy('created_at', 'desc')
             ->paginate(12);
 
         return view('article.index', compact('articles'));
     }
+
     // Solo annunci approvati nel dettaglio
     public function show(Article $article)
     {

@@ -40,6 +40,11 @@ return [
     'apply'             => 'Postúlate ahora',
     'rights'            => '© :year Presto.it — Todos los derechos reservados. Hecho por el Equipo Presto.',
 
+    // Footer revisor
+    'revisor_area'      => 'Revisores',
+    'revisor_area_desc' => 'Accede al panel de revisores y gestiona los anuncios en espera de aprobación.',
+    'regulations'       => 'Reglamento',
+
     // Auth
     'welcome_back'      => 'Bienvenido de nuevo',
     'login_subtitle'    => 'Inicia sesión en tu cuenta',
@@ -62,7 +67,7 @@ return [
     'email_invalid'     => 'Introduce un correo electrónico válido.',
     'email_taken'       => 'Este correo electrónico ya está registrado.',
     'password_required' => 'La contraseña es obligatoria.',
-    'password_confirmed' =>'La contraseña de confirmación no coincide con la contraseña.',
+    'password_confirmed' => 'La contraseña de confirmación no coincide con la contraseña.',
 
     // Hero
     'hero_subtitle'     => 'El portal número uno para vender y comprar artículos de todo tipo.',
@@ -144,6 +149,12 @@ return [
     'cart_cleared'          => 'Carrito vaciado.',
     'cart_error'            => 'Artículo no disponible.',
     'cart_own_article'      => 'No puedes añadir tu propio anuncio al carrito.',
+
+    // My articles
+    'my_articles_desc' => 'Todos los anuncios que has publicado.',
+    'status_approved' => 'Aprobado',
+    'status_rejected' => 'Rechazado',
+    'status_pending'  => 'Pendiente',
 
     // messages description
     'price_hint' => 'Usa el punto como separador decimal. Ej: 10.00 = diez euros, 10000 = diez mil euros.',

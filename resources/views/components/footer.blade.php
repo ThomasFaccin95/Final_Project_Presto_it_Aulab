@@ -31,14 +31,24 @@
 
             {{-- Colonna 3: Diventa revisore --}}
             <div class="col-12 col-md-4">
-                <h6 class="text-uppercase fw-bold mb-3 small footer-heading">{{ __('messages.earn') }}</h6>
-                <p class="small mb-3 footer-text">{{ __('messages.earn_desc') }}</p>
-                @auth
-                    <a href="{{ route('work-with-us') }}" class="btn-presto-outline btn-sm">{{ __('messages.apply') }}</a>
-                @endauth
-                @guest
-                    <a href="{{ route('register') }}" class="btn-presto btn-sm">{{ __('messages.register') }}</a>
-                @endguest
+                @if (!auth()->check() || !auth()->user()->isRevisor())
+                    <h6 class="text-uppercase fw-bold mb-3 small footer-heading">{{ __('messages.earn') }}</h6>
+                    <p class="small mb-3 footer-text">{{ __('messages.earn_desc') }}</p>
+                    @auth
+                        <a href="{{ route('work-with-us') }}"
+                            class="btn-presto-outline btn-sm">{{ __('messages.apply') }}</a>
+                    @endauth
+                    @guest
+                        <a href="{{ route('register') }}" class="btn-presto btn-sm">{{ __('messages.register') }}</a>
+                    @endguest
+                @else
+                    <h6 class="text-uppercase fw-bold mb-3 small footer-heading">{{ __('messages.revisor_area') }}</h6>
+                    <p class="small mb-3 footer-text">{{ __('messages.revisor_area_desc') }}</p>
+                    <a href="{{ route('revisor.index') }}"
+                        class="btn-presto-outline btn-sm me-2">{{ __('messages.revisor_panel') }}</a>
+                    <a href="{{ route('regulations') }}"
+                        class="btn-presto-outline btn-sm">{{ __('messages.regulations') }}</a>
+                @endif
             </div>
 
         </div>

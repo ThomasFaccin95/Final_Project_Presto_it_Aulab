@@ -40,6 +40,11 @@ return [
     'apply'             => 'Apply now',
     'rights'            => '© :year Presto.it — All rights reserved. Made by Team Presto.',
 
+    // Footer revisor
+    'revisor_area'      => 'Revisors',
+    'revisor_area_desc' => 'Access the revisor panel and manage listings waiting for approval.',
+    'regulations'       => 'Regulations',
+
     // Auth
     'welcome_back'      => 'Welcome back',
     'login_subtitle'    => 'Sign in to your account',
@@ -143,6 +148,12 @@ return [
     'cart_cleared'          => 'Cart cleared.',
     'cart_error'            => 'Item not available.',
     'cart_own_article'      => 'You cannot add your own listing to the cart.',
+
+    // My articles
+    'my_articles_desc' => 'All the listings you have published.',
+    'status_approved' => 'Approved',
+    'status_rejected' => 'Rejected',
+    'status_pending'  => 'Pending',
 
     // messages description
     'price_hint' => 'Use a dot as decimal separator. E.g: 10.00 = ten euros, 10000 = ten thousand euros.',

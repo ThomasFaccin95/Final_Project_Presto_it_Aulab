@@ -15,6 +15,8 @@ Route::get('/lang/{locale}', [PublicController::class, 'setLocale'])->name('lang
 // Lavora con noi — pubblica
 Route::get('/work-with-us', [PublicController::class, 'workWithUs'])->name('work-with-us');
 
+Route::get('/regulations', fn() => view('regulations'))->name('regulations');
+
 // Invio richiesta revisore — solo utenti loggati
 Route::post('/work-with-us', [PublicController::class, 'sendRevisorRequest'])->name('work-with-us.send')->middleware('auth');
 
@@ -49,6 +51,7 @@ Route::middleware(['auth', 'revisor'])->prefix('revisor')->group(function () {
 
 // Rotte carrello — solo utenti loggati
 Route::middleware('auth')->group(function () {
+    Route::get('/my-articles', [ArticleController::class, 'myArticles'])->name('article.my');
     Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
     Route::post('/cart/add/{article}', [CartController::class, 'add'])->name('cart.add');
     Route::delete('/cart/remove/{cartItem}', [CartController::class, 'remove'])->name('cart.remove');

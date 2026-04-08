@@ -1,3 +1,5 @@
+@props(['article', 'showStatus' => false])
+
 <div class="article-card">
 
     {{-- Mostra la prima immagine reale se disponibile, altrimenti usa picsum --}}
@@ -5,7 +7,26 @@
         alt="Immagine di {{ $article->title }}" class="article-card-img">
 
     <div class="article-card-body">
-        <div class="article-card-category">{{ $article->category->translated_name }}</div>
+
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="article-card-category">{{ $article->category->translated_name }}</div>
+            @if ($showStatus)
+                @php
+                    $badgeClass = match ($article->status) {
+                        'approved' => 'badge-status-approved',
+                        'rejected' => 'badge-status-rejected',
+                        default => 'badge-status-pending',
+                    };
+                    $badgeLabel = match ($article->status) {
+                        'approved' => __('messages.status_approved'),
+                        'rejected' => __('messages.status_rejected'),
+                        default => __('messages.status_pending'),
+                    };
+                @endphp
+                <span class="{{ $badgeClass }}">{{ $badgeLabel }}</span>
+            @endif
+        </div>
+
         <h5 class="article-card-title">{{ $article->title }}</h5>
 
         {{-- Prezzo e bottone carrello sulla stessa riga --}}

@@ -48,18 +48,30 @@
                         <a class="btn-presto btn-sm btn-navbar-create"
                             href="{{ route('article.create') }}">{{ __('messages.insert_article') }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('work-with-us') }}">{{ __('messages.work_with_us') }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{{ __('messages.my_articles') }}</a>
-                    </li>
                     <li class="nav-item d-none d-xl-block">
                         <div class="navbar-divider"></div>
                     </li>
-                    <li class="nav-item">
-                        <span class="navbar-user">{{ auth()->user()->name }}</span>
+
+                    {{-- Dropdown nome utente --}}
+                    <li class="nav-item dropdown">
+                        <span class="navbar-user dropdown-toggle" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="cursor: pointer;">
+                            {{ auth()->user()->name }}
+                        </span>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            @if (!auth()->user()->isRevisor())
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('work-with-us') }}">{{ __('messages.work_with_us') }}</a>
+                                </li>
+                            @endif
+                            <li>
+                                <a class="dropdown-item"
+                                    href="{{ route('article.my') }}">{{ __('messages.my_articles') }}</a>
+                            </li>
+                        </ul>
                     </li>
+
                     @if (auth()->user()->isRevisor())
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('revisor.index') }}">{{ __('messages.revisor_panel') }}</a>
