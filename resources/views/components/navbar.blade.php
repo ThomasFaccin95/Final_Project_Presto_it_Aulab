@@ -69,20 +69,40 @@
                                 <a class="dropdown-item"
                                     href="{{ route('article.my') }}">{{ __('messages.my_articles') }}</a>
                             </li>
+                            @if (auth()->user()->isRevisor())
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('revisor.index') }}">{{ __('messages.revisor_panel') }}</a>
+                                </li>
+                            @endif
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            {{-- Cambio lingua --}}
+                            @foreach (['it' => ['flag' => 'https://flagcdn.com/w40/it.png', 'label' => 'Italiano'], 'en' => ['flag' => 'https://flagcdn.com/w40/gb.png', 'label' => 'English'], 'es' => ['flag' => 'https://flagcdn.com/w40/es.png', 'label' => 'Español']] as $locale => $data)
+                                <li>
+                                    <a href="{{ route('lang.switch', $locale) }}"
+                                        class="dropdown-item d-flex align-items-center gap-2 {{ app()->getLocale() === $locale ? 'active' : '' }}">
+                                        <img src="{{ $data['flag'] }}" alt="{{ strtoupper($locale) }}" class="lang-flag">
+                                        {{ $data['label'] }}
+                                    </a>
+                                </li>
+                            @endforeach
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            {{-- Logout --}}
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit"
+                                        class="dropdown-item text-danger">{{ __('messages.logout') }}</button>
+                                </form>
+                            </li>
                         </ul>
                     </li>
 
-                    @if (auth()->user()->isRevisor())
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('revisor.index') }}">{{ __('messages.revisor_panel') }}</a>
-                        </li>
-                    @endif
-                    <li class="nav-item">
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button type="submit" class="btn-presto-outline btn-sm">{{ __('messages.logout') }}</button>
-                        </form>
-                    </li>
+                    {{-- Carrello --}}
                     <li class="nav-item">
                         <a href="{{ route('cart.index') }}" class="nav-link cart-nav-link">
                             🛒
@@ -96,10 +116,12 @@
 
             </ul>
 
-            {{-- Lang switcher — solo desktop --}}
-            <div class="d-none d-xl-flex align-items-center ms-3">
-                <x-lang-switcher />
-            </div>
+            {{-- Lang switcher — solo desktop, visibile solo per guest --}}
+            @guest
+                <div class="d-none d-xl-flex align-items-center ms-3">
+                    <x-lang-switcher />
+                </div>
+            @endguest
 
             {{-- Barra di ricerca — solo mobile, sotto i link --}}
             <div class="d-xl-none w-100 mt-2 mb-1">
