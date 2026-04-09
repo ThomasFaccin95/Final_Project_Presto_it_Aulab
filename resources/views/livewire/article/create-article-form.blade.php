@@ -33,8 +33,7 @@
             <div class="input-group">
 
                 <input type="number" id="price" wire:model="price"
-                    class="presto-input @error('price') is-invalid @enderror" placeholder="Es. 49.99"
-                    step="0.01">
+                    class="presto-input @error('price') is-invalid @enderror" placeholder="Es. 49.99" step="0.01">
             </div>
             {{-- Nota esplicativa per evitare errori di formattazione --}}
             <small class="price-hint">{{ __('messages.price_hint') }}</small>
@@ -58,9 +57,9 @@
             <label class="presto-label">{{ __('messages.images') }}</label>
 
             {{-- Input file nascosto: notare l'aggiunta di onchange="aggiornaTestoFile(this)" --}}
-            <input type="file" id="images" wire:model="temporary_images" class="@error('temporary_images.*') is-invalid @enderror"
-                style="display:none" multiple accept="image/jpeg, image/png, image/jpg, image/webp"
-                onchange="aggiornaTestoFile(this)">
+            <input type="file" id="images" wire:model="temporary_images"
+                class="@error('temporary_images.*') is-invalid @enderror" style="display:none" multiple
+                accept="image/jpeg, image/png, image/jpg, image/webp" onchange="aggiornaTestoFile(this)">
 
             {{-- Bottone custom traducibile --}}
             <div class="presto-input d-flex align-items-center gap-2"
@@ -105,8 +104,8 @@
                 </div>
             @endif
         </div>
-
-        <button type="submit" class="btn-presto w-100">{{ __('messages.insert_article_btn') }}</button>
-
+        <div class="text-center">
+            <button type="submit" class="btn-presto w-50">{{ __('messages.insert_article_btn') }}</button>
+        </div>
     </form>
 </div>

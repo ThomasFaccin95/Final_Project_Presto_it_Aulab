@@ -231,6 +231,42 @@ body {
     margin-top: 4px;
 }
 
+/* =========================================
+   STILE PAGINAZIONE - PRESTO.IT (Con Variabili)
+   ========================================= */
+
+.pagination .page-link {
+    color: var(--color-terra-600) ; 
+    background-color: #ffffff ; 
+    border-color: var(--color-sand-200) ; 
+    box-shadow: none ; 
+    font-family: var(--font-body) ; 
+}
+
+.pagination .page-link:hover {
+    color: var(--color-espresso) ; 
+    background-color: var(--color-cream) ; 
+    border-color: var(--color-sand-200) ;
+}
+
+.pagination .page-item.active .page-link {
+    color: #ffffff ; 
+    background-color: var(--color-terra-600) ; 
+    border-color: var(--color-terra-600) ;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: var(--color-mocha) ; 
+    background-color: var(--color-cream) ; 
+    border-color: var(--color-sand-200) ;
+    opacity: 0.7; /* Leggera trasparenza per i tasti disabilitati */
+}
+
+.d-sm-flex .text-muted {
+    color: var(--color-mocha) ; 
+    font-family: var(--font-body);
+}
+
 /* Article Card */
 
 .article-card {
