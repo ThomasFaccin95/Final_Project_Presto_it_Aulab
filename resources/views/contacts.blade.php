@@ -1,9 +1,9 @@
 <x-layout>
     <x-slot:title>{{ __('contacts.title') }}</x-slot:title>
 
-    <div class="container my-5">
+    <div class="container mb-5">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 text-center">
+            <div class="col-12 col-md-8 col-lg-7 text-center">
                 <h1 class="display-4 fw-bold welcome-title">{{ __('contacts.title') }}</h1>
 
                 <p class="lead m-4 mb-2 welcome-subtitle">{{ __('contacts.description_1') }}</p>
@@ -13,48 +13,52 @@
                     <div id="flash-message" class="alert-success-presto mb-4">{{ session('success') }}</div>
                 @endif
 
-                @auth
-                    <div class="auth-card">
-                        {{-- NOTA: Ricordati di cambiare la rotta se crei un controller apposito per i contatti --}}
-                        <form method="POST" action="{{ route('work-with-us.send') }}">
-                            @csrf
+                <div class="auth-card">
 
-                            {{-- Nome precompilato con i dati dell'utente loggato --}}
-                            <div class="mb-3">
-                                <label class="presto-label">{{ __('messages.full_name') }}</label>
-                                <input type="text" class="presto-input" value="{{ auth()->user()->name }}" readonly>
-                            </div>
+                    <form method="POST" action="{{ route('contacts.send') }}">
+                        @csrf
 
-                            {{-- Email precompilata con i dati dell'utente loggato --}}
-                            <div class="mb-3">
-                                <label class="presto-label">{{ __('messages.email') }}</label>
-                                <input type="email" class="presto-input" value="{{ auth()->user()->email }}" readonly>
-                            </div>
+                        {{-- Nome: autocompilato e bloccato se loggato, scrivibile se ospite --}}
+                        <div class="mb-3 text-start">
+                            <label for="name" class="presto-label">{{ __('messages.full_name') }}</label>
+                            <input type="text" id="name" name="name"
+                                class="presto-input @error('name') is-invalid @enderror"
+                                value="{{ auth()->check() ? auth()->user()->name : old('name') }}"
+                                {{ auth()->check() ? 'readonly' : '' }}>
+                            @error('name')
+                                <div class="auth-error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Email: autocompilata e bloccata se loggato, scrivibile se ospite --}}
+                        <div class="mb-3 text-start">
+                            <label for="email" class="presto-label">{{ __('messages.email') }}</label>
+                            <input type="email" id="email" name="email"
+                                class="presto-input @error('email') is-invalid @enderror"
+                                value="{{ auth()->check() ? auth()->user()->email : old('email') }}"
+                                {{ auth()->check() ? 'readonly' : '' }}>
+                            @error('email')
+                                <div class="auth-error">{{ $message }}</div>
+                            @enderror
+                        </div>
 
 
-                            {{--  Messaggio --}}
-                            <div class="mb-4 text-start">
-                                <label for="message" class="presto-label">
-                                    {{ __('contacts.message.title') }}
-                                </label>
-                                <textarea id="message" name="message" 
-                                    class="presto-input @error('message') is-invalid @enderror"
-                                    rows="5" 
-                                    placeholder="{{ __('contacts.message.placeholder') }}">{{ old('message') }}</textarea>
-                                @error('message')
-                                    <div class="auth-error">{{ $message }}</div>
-                                @enderror
-                            </div>
+                        {{--  Messaggio --}}
+                        <div class="mb-4 text-start">
+                            <label for="message" class="presto-label">
+                                {{ __('contacts.message.title') }}
+                            </label>
+                            <textarea id="contacts" name="contacts" class="presto-input @error('contacts') is-invalid @enderror" rows="5"
+                                placeholder="{{ __('contacts.message.placeholder') }}">{{ old('contacts') }}</textarea>
+                            @error('contacts')
+                                <div class="auth-error">{{ $message }}</div>
+                            @enderror
+                        </div>
 
-                            <button type="submit" class="btn-presto w-100">
-                                Invia Messaggio
-                            </button>
-                        </form>
-                    </div>
-                @endauth
-
-                <div class="mt-5">
-                    <a href="{{ route('homepage') }}" class="btn-presto-outline btn-sm">{{ __('messages.back_home') }}</a>
+                        <button type="submit" class="btn-presto w-50">
+                            {{ __('contacts.send_application') }}
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>

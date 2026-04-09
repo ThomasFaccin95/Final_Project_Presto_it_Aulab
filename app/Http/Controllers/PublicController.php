@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 // use Illuminate\Http\Request;
+
+use App\Mail\ContactApplication;
 use App\Models\Article;
 use App\Mail\RevisorRequest;
 use Illuminate\Http\Request;
@@ -57,5 +59,32 @@ class PublicController extends Controller
         ));
 
         return redirect()->route('work-with-us')->with('success', 'Richiesta inviata! Ti ricontatteremo presto.');
+    }
+
+    // Mostra la pagina contacts
+    public function contacts()
+    {
+        return view('contacts');
+    }
+
+    // Gestisce il submit del form e invia la mail
+    public function sendContactsRequest(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'contacts' => ['required', 'string', 'min:20'],
+        ], [
+            'contacts.required' => __('contacts.message.required'),
+            'contacts.min'      => __('contacts.message.min'),
+        ]);
+
+        Mail::to(config('mail.from.address'))->send(new ContactApplication(
+            userName: $request->input('name'),
+            userEmail: $request->input('email'),
+            motivation: $request->input('contacts'),
+        ));
+
+        return redirect()->route('homepage')->with('success', 'Messaggio inviato! Ti ricontatteremo al più presto.');
     }
 }

@@ -40,9 +40,12 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn-presto w-100">
-                            {{ __('messages.send_application') }}
-                        </button>
+                        <div class="text-center">
+                            <button type="submit" class="btn-presto w-50">
+                                {{ __('messages.send_application') }}
+                            </button>
+                        </div>
+
                     </form>
                 </div>
             @endauth

@@ -22,13 +22,15 @@ Route::get('/about-us', function () {
     return view('about_us');
 })->name('about_us');
 
-// Rotta per la pagina Contatti
-Route::get('/contacts', function () {
-    return view('contacts');
-})->name('contacts');
+// Rotta per la pagina Contatti - pubblica
+Route::get('/contacts', [PublicController::class, 'contacts'])->name('contacts');
+
+// Invio per la richiesta Contattaci - pubblica
+Route::post('/contacts', [PublicController::class, 'sendContactsRequest'])->name('contacts.send');
 
 // Invio richiesta revisore — solo utenti loggati
 Route::post('/work-with-us', [PublicController::class, 'sendRevisorRequest'])->name('work-with-us.send')->middleware('auth');
+
 
 // Search before show method
 Route::get('/articles/search', [ArticleController::class, 'search'])->name('article.search');
