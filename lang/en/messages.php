@@ -96,6 +96,8 @@ return [
     'motivation_placeholder' => 'Tell us your motivation...',
     'send_application'      => 'Send application',
     'login_required'        => 'You must be registered to apply as a revisor.',
+    'motivation_required' => 'The motivation field is required.',
+    'motivation_min'      => 'The motivation must be at least 20 characters.',
 
 
     // Uploads
@@ -158,14 +160,7 @@ return [
     // messages description
     'price_hint' => 'Use a dot as decimal separator. E.g: 10.00 = ten euros, 10000 = ten thousand euros.',
 
-    // About Us
-    'about_us_title' => 'About Us',
-    'about_us_description' => 'We are a passionate team of developers ready to bring incredible projects to life.',
-
-    // Contacts
-    'contacts_title' => 'Contact Us',
-    'contacts_description' => 'Do you have any questions? Write to us for any information, we will be happy to help!',
-
+    
     // Edit and Destroy
     'article_edit'           => 'Edit',
     'article_edit_subtitle'  => 'Update your listing details',

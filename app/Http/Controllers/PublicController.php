@@ -46,8 +46,8 @@ class PublicController extends Controller
         $request->validate([
             'motivation' => ['required', 'string', 'min:20'],
         ], [
-            'motivation.required' => 'La motivazione è obbligatoria.',
-            'motivation.min'      => 'La motivazione deve essere di almeno 20 caratteri.',
+            'motivation.required' => __('messages.motivation_required'),
+            'motivation.min'      => __('messages.motivation_min'),
         ]);
 
         Mail::to(config('mail.from.address'))->send(new RevisorRequest(
@@ -56,6 +56,6 @@ class PublicController extends Controller
             motivation: $request->input('motivation'),
         ));
 
-        return redirect()->route('work-with-us')->with('success', 'Richiesta inviata! Ti contatteremo presto.');
+        return redirect()->route('work-with-us')->with('success', 'Richiesta inviata! Ti ricontatteremo presto.');
     }
 }

@@ -97,6 +97,8 @@ return [
     'motivation_placeholder' => 'Cuentanos tu motivacion...',
     'send_application'      => 'Enviar solicitud',
     'login_required'        => 'Debes estar registrado para solicitar ser revisor.',
+    'motivation_required' => 'La motivación es obligatoria.',
+    'motivation_min'      => 'La motivación debe tener al menos 20 caracteres.',
 
     // Uploads
     'insert_article_title'    => 'Insertar anuncio',
@@ -159,13 +161,7 @@ return [
     // messages description
     'price_hint' => 'Usa el punto como separador decimal. Ej: 10.00 = diez euros, 10000 = diez mil euros.',
 
-    // About Us
-    'about_us_title' => 'Sobre Nosotros',
-    'about_us_description' => 'Somos un equipo apasionado de desarrolladores listos para dar vida a proyectos increíbles.',
-    // Contacts
-    'contacts_title' => 'Contáctanos',
-    'contacts_description' => '¿Tienes alguna pregunta? Escríbenos para cualquier información, ¡estaremos encantados de ayudarte!',
-
+   
     // edit and Destroy
     'article_edit'           => 'Editar',
     'article_edit_subtitle'  => 'Actualiza los datos de tu anuncio',
