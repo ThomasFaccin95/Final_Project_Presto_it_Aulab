@@ -30,7 +30,7 @@
         <div class="col">
             <div class="row gy-4 align-items-stretch">
                 @forelse ($articles as $article)
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex">
+                    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-3 d-flex">
                         <x-card :article="$article" />
                     </div>
                 @empty

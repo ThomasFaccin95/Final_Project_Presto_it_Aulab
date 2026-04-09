@@ -2,14 +2,16 @@
 <div class="col-12 col-md-3 col-lg-2">
     <div class="sidebar-categories">
 
-        <button class="sidebar-toggle w-100 d-flex justify-content-between align-items-center" data-bs-toggle="collapse"
-            data-bs-target="#sidebarLinks" aria-expanded="true" aria-controls="sidebarLinks">
+        {{-- Su mobile parte collassato, su md+ sempre aperto --}}
+        <button class="sidebar-toggle w-100 d-flex justify-content-between align-items-center collapsed"
+            data-bs-toggle="collapse" data-bs-target="#sidebarLinks" aria-expanded="false" aria-controls="sidebarLinks">
             {{-- Titolo sidebar tradotto --}}
             <span class="sidebar-title">{{ __('messages.categories') }}</span>
             <span class="sidebar-arrow">▲</span>
         </button>
 
-        <div class="collapse show mt-2" id="sidebarLinks">
+        {{-- Su mobile collassato di default, su md+ sempre visibile grazie a d-md-block --}}
+        <div class="collapse mt-2 d-md-block" id="sidebarLinks">
 
             {{-- Link per rimuovere il filtro categoria --}}
             <a href="{{ route('article.index') }}" class="sidebar-link {{ !isset($category) ? 'active' : '' }}">

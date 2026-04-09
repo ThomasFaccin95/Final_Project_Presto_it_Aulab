@@ -917,3 +917,28 @@ body {
 .btn-danger-presto:hover {
     background-color: #fca5a5;
 }
+
+@media (max-width: 767px) {
+    .article-card {
+        max-width: 340px;
+        margin: 0 auto;
+    }
+
+    .row.gy-4 {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 1199px) {
+    .search-wrapper {
+        width: 60%;
+        margin: 0 auto;
+    }
+    .search-input-wrapper {
+        width: 100%;
+    }
+
+    .search-input {
+        width: 100%;
+    }
+}
