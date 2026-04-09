@@ -20,7 +20,11 @@
             </div>
         </div>
     </div>
-
+    <div class="mt-4">
+        @if (session('success'))
+            <div id="flash-message" class="alert-success-presto mb-4">{{ session('success') }}</div>
+        @endif
+    </div>
     {{-- Sezione ultimi annunci --}}
     <div class="row mt-5 mb-3">
         <div class="col-12">
