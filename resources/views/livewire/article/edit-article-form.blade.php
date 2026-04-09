@@ -112,9 +112,9 @@
 
         <div class="d-flex gap-3">
             <a href="{{ route('article.my') }}" class="btn-presto-outline">
-                ← {{ __('messages.back_home') }}
+                {{ __('messages.back_home') }}
             </a>
-            <button type="submit" class="btn-presto w-100">{{ __('messages.article_save') }}</button>
+            <button type="submit" class="btn-presto ">{{ __('messages.article_save') }}</button>
         </div>
 
     </form>
