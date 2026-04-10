@@ -160,8 +160,9 @@ return [
 
     // messages description
     'price_hint' => 'Usa el punto como separador decimal. Ej: 10.00 = diez euros, 10000 = diez mil euros.',
+    'search_view_all' => 'Ver todos los resultados →',
 
-   
+
     // edit and Destroy
     'article_edit'           => 'Editar',
     'article_edit_subtitle'  => 'Actualiza los datos de tu anuncio',

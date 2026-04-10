@@ -20,12 +20,20 @@ class SearchBar extends Component
             $this->results = [];
             return;
         }
+        // Traduce la query in italiano per cercare nel DB
+        $searchQuery = \App\Helpers\TranslateHelper::translate($this->query, 'it');
+        $originalQuery = $this->query;
+
         $this->results = Article::with(['category'])
-            ->where(function ($q) {
-                $q->where('title', 'like', '%' . $this->query . '%')
-                    ->orWhere('description', 'like', '%' . $this->query . '%')
-                    ->orWhereHas('category', function ($q) {
-                        $q->where('name', 'like', '%' . $this->query . '%');
+            ->where('status', 'approved')
+            ->where(function ($q) use ($searchQuery, $originalQuery) {
+                $q->where('title', 'like', '%' . $searchQuery . '%')
+                    ->orWhere('title', 'like', '%' . $originalQuery . '%')
+                    ->orWhere('description', 'like', '%' . $searchQuery . '%')
+                    ->orWhere('description', 'like', '%' . $originalQuery . '%')
+                    ->orWhereHas('category', function ($q) use ($searchQuery, $originalQuery) {
+                        $q->where('name', 'like', '%' . $searchQuery . '%')
+                            ->orWhere('name', 'like', '%' . $originalQuery . '%');
                     });
             })
             ->orderBy('created_at', 'desc')

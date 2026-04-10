@@ -17,7 +17,7 @@
                         </a>
                     </li>
                     <li class="breadcrumb-separator">›</li>
-                    <li class="breadcrumb-current">{{ $article->title }}</li>
+                    <li class="breadcrumb-current">{{ $article->translated_title }}</li>
                 </ol>
             </nav>
 
@@ -45,14 +45,14 @@
                     <div>
                         {{-- Categoria tradotta nella lingua corrente --}}
                         <span class="article-card-category">{{ $article->category->translated_name }}</span>
-                        <h1 class="article-show-title">{{ $article->title }}</h1>
+                        <h1 class="article-show-title">{{ $article->translated_title }}</h1>
                     </div>
                     <span class="article-show-price">€ {{ number_format($article->price, 2, ',', '.') }}</span>
                 </div>
 
                 <hr class="auth-divider my-3">
 
-                <p class="article-show-description">{{ $article->description }}</p>
+                <p class="article-show-description">{{ $article->translated_description }}</p>
 
                 <hr class="auth-divider my-3">
 

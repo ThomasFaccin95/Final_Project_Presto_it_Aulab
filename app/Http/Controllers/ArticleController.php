@@ -60,14 +60,23 @@ class ArticleController extends Controller
     public function search(Request $request)
     {
         $query = $request->input('query', '');
+
+        // Traduce la query nella lingua base (italiano) per cercare nel DB
+        $searchQuery = \App\Helpers\TranslateHelper::translate($query, 'it');
+
+        // Debug per verificare la traduzione
+        // \Illuminate\Support\Facades\Log::info('[Search] Query originale: ' . $query);
+        // \Illuminate\Support\Facades\Log::info('[Search] Query tradotta: ' . $searchQuery);
+
         // Filtra gli articoli per query : $q -> Eloquent che mi permette di raggruppare condizioni logiche e definire query complesse
         $articles = Article::with(['category', 'user'])
             ->where('status', 'approved')
-            ->where(function ($q) use ($query) {
-                $q->where('title', 'like', '%' . $query . '%')
-                    ->orWhere('description', 'like', '%' . $query . '%')
-                    ->orWhereHas('category', function ($q) use ($query) {
-                        $q->where('name', 'like', '%' . $query . '%');
+            ->when(auth()->check(), fn($q) => $q->where('user_id', '!=', Auth::id()))
+            ->where(function ($q) use ($searchQuery) {
+                $q->where('title', 'like', '%' . $searchQuery . '%')
+                    ->orWhere('description', 'like', '%' . $searchQuery . '%')
+                    ->orWhereHas('category', function ($q) use ($searchQuery) {
+                        $q->where('name', 'like', '%' . $searchQuery . '%');
                     });
             })
             ->orderBy('created_at', 'desc')

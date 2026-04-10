@@ -27,7 +27,7 @@
             @endif
         </div>
 
-        <h5 class="article-card-title">{{ $article->title }}</h5>
+        <h5 class="article-card-title">{{ $article->translated_title }}</h5>
 
         {{-- Prezzo e bottone carrello sulla stessa riga --}}
         <div class="d-flex justify-content-between align-items-center mb-3">

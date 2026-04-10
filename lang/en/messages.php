@@ -68,7 +68,7 @@ return [
     'email_taken'       => 'This email is already taken.',
     'password_required' => 'The password is required.',
     'password_confirmed' => 'The password does not match with the confirmation password.',
-    
+
     // Hero
     'hero_subtitle'     => 'The number one portal to buy and sell items of all kinds.',
     'view_articles'     => 'Browse listings',
@@ -160,8 +160,9 @@ return [
 
     // messages description
     'price_hint' => 'Use a dot as decimal separator. E.g: 10.00 = ten euros, 10000 = ten thousand euros.',
+    'search_view_all' => 'View all results →',
 
-    
+
     // Edit and Destroy
     'article_edit'           => 'Edit',
     'article_edit_subtitle'  => 'Update your listing details',

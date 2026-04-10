@@ -159,8 +159,9 @@ return [
 
     // messages description
     'price_hint' => 'Usa il punto come separatore decimale. Es: 10.00 = dieci euro, 10000 = diecimila euro.',
+    'search_view_all' => 'Vedi tutti i risultati →',
 
-  
+
     // Edit and Destroy
     'article_edit'           => '   Modifica  ',
     'article_edit_subtitle'  => 'Modifica i campi del tuo annuncio',

@@ -11,9 +11,10 @@
                 <div class="search-dropdown">
                     @forelse ($results as $article)
                         <a href="{{ route('article.show', $article) }}" class="search-result-item">
-                            <div class="search-result-title">{{ $article->title }}</div>
+                            <div class="search-result-title">{{ $article->translated_title }}</div>
                             <div class="search-result-meta">
-                                {{ $article->category->name }} · € {{ number_format($article->price, 2, ',', '.') }}
+                                {{ $article->category->translated_name }} · €
+                                {{ number_format($article->price, 2, ',', '.') }}
                             </div>
                         </a>
                     @empty
@@ -22,7 +23,7 @@
 
                     @if (count($results) > 0)
                         <button type="submit" class="search-view-all">
-                            Vedi tutti i risultati →
+                            {{ __('messages.search_view_all') }}
                         </button>
                     @endif
                 </div>
