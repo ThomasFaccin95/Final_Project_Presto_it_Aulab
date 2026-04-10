@@ -2,7 +2,8 @@
     <div class="container">
 
         {{-- Brand --}}
-        <a class="navbar-brand" href="{{ route('homepage') }}"><img src="images/watermark.png" alt="Presto.it" class=" img-fluid " style="height: 70px; width: 100px; "></a>
+        <a class="navbar-brand" href="{{ route('homepage') }}"> <img src="{{ asset('images/watermark.png') }}"
+                alt="Presto.it" class="img-fluid" style="height: 60px; width: 100px;"></a>
 
         {{-- Lang switcher + Toggler mobile --}}
         <div class="d-flex align-items-center gap-3 ms-auto d-xl-none">
