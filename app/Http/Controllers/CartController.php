@@ -142,6 +142,11 @@ class CartController extends Controller
             items: $items,
             total: $total,
         ));
+
+        // Segna gli articoli come venduti
+        foreach ($cartItems as $cartItem) {
+            $cartItem->article->update(['status' => 'sold']);
+        }
         // Svuota il carrello dopo il pagamento
         CartItem::where('user_id', Auth::id())->delete();
 

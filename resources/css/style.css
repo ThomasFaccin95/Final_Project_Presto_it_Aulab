@@ -937,6 +937,14 @@ body {
     padding: 2px 8px;
     border-radius: 999px;
 }
+.badge-status-sold {
+    background-color: var(--color-mocha);
+    color: var(--color-sand-50);
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
 
 /* Button edit article */
 .btn-danger-presto {
@@ -984,5 +992,7 @@ body {
     padding: 20px;
     opacity: 0.3;
 }
+
+
     
 }

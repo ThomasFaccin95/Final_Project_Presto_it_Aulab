@@ -23,11 +23,13 @@
                     $badgeClass = match ($article->status) {
                         'approved' => 'badge-status-approved',
                         'rejected' => 'badge-status-rejected',
+                        'sold' => 'badge-status-sold',
                         default => 'badge-status-pending',
                     };
                     $badgeLabel = match ($article->status) {
                         'approved' => __('messages.status_approved'),
                         'rejected' => __('messages.status_rejected'),
+                        'sold' => __('messages.status_sold'),
                         default => __('messages.status_pending'),
                     };
                 @endphp

@@ -177,4 +177,7 @@ return [
     'revisor_remove'         => 'Renunciar al rol',
     'revisor_remove_confirm' => '¿Estás seguro de que quieres renunciar como revisor?',
     'revisor_remove_success' => 'Has renunciado al rol de revisor.',
+
+    // status
+    'status_sold' => 'Vendido',
 ];
