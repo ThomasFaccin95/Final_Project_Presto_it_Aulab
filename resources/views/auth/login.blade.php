@@ -55,6 +55,12 @@
                     <a href="{{ route('register') }}" class="auth-link">{{ __('messages.register') }}</a>
                 </p>
 
+                {{-- Link Password Dimenticata --}}
+                    <div class="mb-3 text-center my-3">
+                        <a href="{{ route('password.request') }}" class="auth-link small text-secondary">
+                            Password dimenticata?
+                        </a>
+                    </div>
             </div>
         </div>
     </div>

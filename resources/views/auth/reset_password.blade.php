@@ -15,7 +15,7 @@
                     <div class="mb-3">
                         <label for="email" class="presto-label">Email</label>
                         <input type="email" id="email" name="email"
-                            class="presto-input @error('email') is-invalid @enderror" value="{{ old('email', $request->email) }}" required readonly>
+                            class="presto-input @error('email') is-invalid @enderror" value="{{ old('email', $request->email) }}">
                         @error('email')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
