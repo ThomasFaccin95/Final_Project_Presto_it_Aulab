@@ -56,6 +56,7 @@ return [
     'join_presto'       => 'Join Presto and start selling',
     'full_name'         => 'Full name',
     'confirm_password'  => 'Confirm password',
+    'confirm_new_password' => 'Confirm New Password',
     'already_account'   => 'Already have an account?',
     'email_placeholder' => 'name@example.com',
     'name_placeholder'  => 'John Doe',

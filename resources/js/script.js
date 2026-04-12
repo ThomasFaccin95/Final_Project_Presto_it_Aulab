@@ -113,3 +113,23 @@ function aggiornaTestoFile(input) {
         etichetta.textContent = numeroFile + " {{ __('messages.files_selected') }}";
     }
 }
+
+
+// TOGGLE VISIBILITÀ PASSWORD
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function () {
+            const targetId = this.dataset.target;
+            const input = document.getElementById(targetId);
+            const icon = document.getElementById('icon-' + targetId);
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        });
+    });
+});

@@ -186,13 +186,25 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-    ],
 
-    'custom' => [
-        'password_confirmation' => [
+         'password_confirmation' => [
             'same' => 'Las contraseñas no coinciden, inténtalo de nuevo.',
+            'required' => 'Las contraseñas no coinciden, inténtalo de nuevo.',
+        ],
+
+        'email' => [
+            'required' => 'Por favor, introduce tu correo electrónico.',
+            'email' => 'Debes introducir una dirección de correo electrónico válida.',
+            'exists' => 'No encontramos ninguna cuenta registrada con este correo en Presto.it.',
+        ],
+
+        'password' => [
+            'required' => 'Por favor, introduce una nueva contraseña.',
+            'min' => 'La contraseña debe tener al menos :min caracteres.',
+            'confirmed' => 'Las dos contraseñas no coinciden, por favor compruébalas.',
         ],
     ],
+
 
     /*
     |--------------------------------------------------------------------------

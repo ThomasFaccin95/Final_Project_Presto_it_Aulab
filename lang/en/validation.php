@@ -186,13 +186,26 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
-    ],
 
-    'custom' => [
         'password_confirmation' => [
             'same' => 'The passwords do not match, please try again.',
+            'required' => 'The passwords do not match, please try again.',
+        ],
+
+          'email' => [
+            'required' => 'Please enter your email address.',
+            'email' => 'You must enter a valid email address.',
+            'exists' => 'We cannot find an account registered with this email on Presto.it.',
+        ],
+
+        'password' => [
+            'required' => 'Please enter a new password.',
+            'min' => 'The password must be at least :min characters.',
+            'confirmed' => 'The two passwords do not match, please check them.',
         ],
     ],
+
+
 
     /*
     |--------------------------------------------------------------------------

@@ -13,6 +13,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Actions\RedirectIfTwoFactorAuthenticatable;
 use Laravel\Fortify\Fortify;
+use Laravel\Fortify\Contracts\SuccessfulPasswordResetLinkRequestResponse;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -34,7 +35,7 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
         Fortify::redirectUserForTwoFactorAuthenticationUsing(RedirectIfTwoFactorAuthenticatable::class);
-
+        
         RateLimiter::for('login', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
@@ -60,6 +61,22 @@ class FortifyServiceProvider extends ServiceProvider
 
         Fortify::resetPasswordView(function ($request) {
             return view('auth.reset_password', ['request' => $request]);
+        });
+
+        // Istruiamo Fortify su dove reindirizzare l'utente dopo l'invio dell'email per il reset
+        $this->app->bind(SuccessfulPasswordResetLinkRequestResponse::class, function ($app, $params) {
+            return new class($params['status'] ?? 'passwords.sent') implements SuccessfulPasswordResetLinkRequestResponse {
+                protected $status;
+
+                public function __construct($status) {
+                    $this->status = $status;
+                }
+
+                public function toResponse($request) {
+                    // Reindirizziamo alla rotta 'homepage' portando con noi il messaggio di successo!
+                    return redirect()->route('homepage')->with('success', trans($this->status));
+                }
+            };
         });
     }
 }

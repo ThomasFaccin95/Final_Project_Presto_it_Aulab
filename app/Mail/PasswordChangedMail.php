@@ -23,7 +23,7 @@ class PasswordChangedMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Conferma cambio password - Presto.it',
+            subject: 'Confirm password change - Presto.it',
         );
     }
 

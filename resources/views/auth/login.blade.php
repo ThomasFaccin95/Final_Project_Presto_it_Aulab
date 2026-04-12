@@ -18,18 +18,20 @@
                         <label for="email" class="presto-label">{{ __('messages.email') }}</label>
                         <input type="email" id="email" name="email"
                             class="presto-input @error('email') is-invalid @enderror" value="{{ old('email') }}"
-                             placeholder="{{ __('messages.email_placeholder') }}">
+                            placeholder="{{ __('messages.email_placeholder') }}">
                         @error('email')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
                     </div>
 
                     {{-- Password --}}
-                    <div class="mb-4">
+                    <div class="mb-4 position-relative">
                         <label for="password" class="presto-label">{{ __('messages.password') }}</label>
                         <input type="password" id="password" name="password"
-                            class="presto-input @error('password') is-invalid @enderror"
-                            placeholder="••••••••">
+                            class="presto-input @error('password') is-invalid @enderror" placeholder="••••••••">
+                        <button type="button" class="toggle-password" data-target="password">
+                            <i class="fa-regular fa-eye" id="icon-password"></i>
+                        </button>
                         @error('password')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
@@ -56,11 +58,12 @@
                 </p>
 
                 {{-- Link Password Dimenticata --}}
-                    <div class="mb-3 text-center my-3">
-                        <a href="{{ route('password.request') }}" class="auth-link small text-secondary">
-                            Password dimenticata?
-                        </a>
-                    </div>
+                <p class="mb-3 text-center small my-3">
+                    {{ __('passwords.forgot_password') }}
+                    <a href="{{ route('password.request') }}" class="auth-link">
+                        {{ __('passwords.forgot_password_link') }}
+                    </a>
+                </p>
             </div>
         </div>
     </div>

@@ -17,7 +17,7 @@
                         <label for="name" class="presto-label">{{ __('messages.full_name') }}</label>
                         <input type="text" id="name" name="name"
                             class="presto-input @error('name') is-invalid @enderror" value="{{ old('name') }}"
-                             placeholder="{{ __('messages.name_placeholder') }}"> 
+                            placeholder="{{ __('messages.name_placeholder') }}">
                         @error('name')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
@@ -35,23 +35,29 @@
                     </div>
 
                     {{-- Password --}}
-                    <div class="mb-3">
+                    <div class="mb-3 position-relative">
                         <label for="password" class="presto-label">{{ __('messages.password') }}</label>
                         <input type="password" id="password" name="password"
                             class="presto-input @error('password') is-invalid @enderror" placeholder="••••••••">
+                        <button type="button" class="toggle-password" data-target="password">
+                            <i class="fa-regular fa-eye" id="icon-password"></i>
+                        </button>
                         @error('password')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
                     </div>
 
                     {{-- Conferma password --}}
-                    <div class="mb-4">
+                    <div class="mb-3 position-relative">
                         <label for="password_confirmation"
                             class="presto-label">{{ __('messages.confirm_password') }}</label>
                         <input type="password" id="password_confirmation" name="password_confirmation"
-                            class="presto-input @error('password_confirmation') is-invalid @enderror" 
-                             placeholder="••••••••">
-                             @error('password_confirmation')
+                            class="presto-input @error('password_confirmation') is-invalid @enderror"
+                            placeholder="••••••••">
+                        <button type="button" class="toggle-password" data-target="password">
+                            <i class="fa-regular fa-eye" id="icon-password"></i>
+                        </button>
+                        @error('password_confirmation')
                             <div class="auth-error">{{ $message }}</div>
                         @enderror
                     </div>

@@ -56,6 +56,7 @@ return [
     'join_presto'       => 'Unisciti a Presto e inizia a vendere',
     'full_name'         => 'Nome completo',
     'confirm_password'  => 'Conferma password',
+    'confirm_new_password'  => 'Conferma Nuova Password',
     'already_account'   => 'Hai già un account?',
     'email_placeholder' => 'nome@esempio.it',
     'name_placeholder'  => 'Mario Rossi',

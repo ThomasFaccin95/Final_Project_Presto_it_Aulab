@@ -87,4 +87,5 @@ class PublicController extends Controller
 
         return redirect()->route('homepage')->with('success', 'Messaggio inviato! Ti ricontatteremo al più presto.');
     }
-}
+    
+    }
