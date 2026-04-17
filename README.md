@@ -5,20 +5,21 @@
 Entwicklung einer voll funktionsfähigen Kleinanzeigen-Plattform unter Anwendung von Agile (Scrum) Methoden.
 
 Hauptmerkmale:
-• Rollenmanagement: Differenziertes System für User, Revisoren und Administratoren.
 
-• Mehrsprachigkeit: Lokalisierung (i18n) für eine globale Nutzererfahrung.
+- Rollenmanagement: Differenziertes System für User, Revisoren und Administratoren.
 
-• Effizienz: Asynchroner Bildupload und automatische Optimierung mittels Laravel Queues.
+- Mehrsprachigkeit: Lokalisierung (i18n) für eine globale Nutzererfahrung.
 
-• Suche: Integrierte Volltextsuche nach Kategorien und Schlagworten.
+- Effizienz: Asynchroner Bildupload und automatische Optimierung mittels Laravel Queues.
+
+- Suche: Integrierte Volltextsuche nach Kategorien und Schlagworten.
 
 Technologien:
-• Backend: PHP 8, Laravel Framework.
+- Backend: PHP 8, Laravel Framework.
 
-• Frontend: JavaScript, Livewire, Blade, Bootstrap.
+- Frontend: JavaScript, Livewire, Blade, Bootstrap.
 
-• Datenbank & Tools: MySQL, Git/GitHub.
+- Datenbank & Tools: MySQL, Git/GitHub.
 
 🇮🇹
 
@@ -27,15 +28,18 @@ Technologien:
 Ho sviluppato una piattaforma di annunci e-commerce completa, simulando un ambiente di lavoro reale con metodologia Agile (Scrum).
 
 Caratteristiche principali:
-• Gestione Ruoli: Sistema di permessi per Utenti, Revisori e Admin.
 
-• Multilinguismo: Implementazione i18n (Italiano, Inglese, Spagnolo).
+- Gestione Ruoli: Sistema di permessi per Utenti, Revisori e Admin.
 
-• Performance: Upload asincrono di immagini e ridimensionamento automatico tramite Laravel Queues.
+- Multilinguismo: Implementazione i18n (Italiano, Inglese, Spagnolo).
 
-• Ricerca: Motore di ricerca full-text integrato per categorie e keyword.
+- Performance: Upload asincrono di immagini e ridimensionamento automatico tramite Laravel Queues.
+
+- Ricerca: Motore di ricerca full-text integrato per categorie e keyword.
 
 Stack Tecnologico:
-• Backend: PHP 8, Laravel (MVC).
-• Frontend: JavaScript, Livewire, Blade, Bootstrap.
-• Database & Tool: MySQL, Git/GitHub
+- Backend: PHP 8, Laravel (MVC).
+
+- Frontend: JavaScript, Livewire, Blade, Bootstrap.
+
+- Database & Tool: MySQL, Git/GitHub
