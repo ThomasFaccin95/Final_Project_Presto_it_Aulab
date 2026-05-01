@@ -20,6 +20,7 @@ Technologien:
 - Frontend: JavaScript, Livewire, Blade, Bootstrap.
 
 - Datenbank & Tools: MySQL, Git/GitHub.
+## 
 
 🇮🇹
 
@@ -43,7 +44,7 @@ Stack Tecnologico:
 - Frontend: JavaScript, Livewire, Blade, Bootstrap.
 
 - Database & Tool: MySQL, Git/GitHub
-
+##
 
 🇬🇧
 
@@ -68,7 +69,7 @@ Technology Stack:
 
 - Database & Tools: MySQL, Git/GitHub.
 Spanish Version
-
+##
 
 🇪🇸
 
